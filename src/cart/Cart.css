@@ -1,0 +1,11 @@
+.cart{
+   background-color: #512da8 ;
+position: fixed;
+bottom: 5rem;
+right: 2rem;
+border-radius: 50%;
+padding: 0.9rem;
+z-index: 6;
+cursor: pointer;
+}
+

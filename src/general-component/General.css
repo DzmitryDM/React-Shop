@@ -1,0 +1,24 @@
+#toast-container {
+   top: 2.2rem ;
+   max-width: 30rem;
+   animation: fade-in 250ms ease-in-out;
+   padding: 0 2rem;
+}
+
+.toast {
+   border-radius: 10rem;
+}
+
+
+
+@keyframes fade-in {
+   from {
+      opacity: 0;
+      transform: translateY(2rem);
+   }
+
+   to {
+      opacity: 1;
+      transform: translateY(0rem);
+   }
+}
