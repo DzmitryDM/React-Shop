@@ -1,4 +1,6 @@
 import React from "react";
+import { useContext } from "react";
+import { ShopContext } from "../context/context";
 
 function BasketItem({
 	mainId,
@@ -6,15 +8,18 @@ function BasketItem({
 	displayName,
 	regularPrice,
 	imageBackground,
-	removeToBasketShow,
-	incrementQuantity,
-	decrementQuantity,
 }) {
+	const {
+		removeToBasketShow = Function.prototype,
+		incrementQuantity = Function.prototype,
+		decrementQuantity = Function.prototype,
+	} = useContext(ShopContext);
+
 	return (
-		<ul class="collection item">
-			<li class="collection-item avatar  ">
-				<img src={imageBackground} alt="" class="circle" />
-				<span class="title">{displayName}</span>
+		<ul className="collection item">
+			<li className="collection-item avatar  ">
+				<img src={imageBackground} alt="" className="circle" />
+				<span className="title">{displayName}</span>
 
 				<p>
 					Колличество:{" "}
@@ -33,10 +38,10 @@ function BasketItem({
 					</span>
 				</p>
 				<p>Цена: {regularPrice}</p>
-				<div class="secondary-content close">
+				<div className="secondary-content close">
 					<i
 						onClick={() => removeToBasketShow(mainId)}
-						class="material-icons color-close"
+						className="material-icons color-close"
 					>
 						close
 					</i>
