@@ -10,17 +10,21 @@ const initialState = {
 	order: [],
 	isBasketShow: false,
 	alertName: "",
+	currentPage: 1,
+	pageSize: 8,
 };
 
 export const ContextProvider = ({ children }) => {
 	const [value, dispatch] = useReducer(reducer, initialState);
-
-   value.closeAlert = () => {
-      dispatch({ type: "CLOSE_ALERT" });
-   };
-   value.getOrder = (item) => {
-      dispatch({ type: "GET_ORDER", payload: item });
-   };
+	value.onPageCount = (pageNumber) => {
+		dispatch({ type: "ON_PAGE_CHANGE", payload: pageNumber });
+	};
+	value.closeAlert = () => {
+		dispatch({ type: "CLOSE_ALERT" });
+	};
+	value.getOrder = (item) => {
+		dispatch({ type: "GET_ORDER", payload: item });
+	};
 	value.setLoading = () => {
 		dispatch({ type: "SET_LOADING" });
 	};
@@ -31,13 +35,16 @@ export const ContextProvider = ({ children }) => {
 		dispatch({ type: "HANDLER_BASKET_SHOW" });
 	};
 	value.removeToBasketShow = (mainId) => {
-		dispatch({ type: "REMOVE_TO_BASKET_SHOW", payload: {mainId} });
+		dispatch({ type: "REMOVE_TO_BASKET_SHOW", payload: { mainId } });
 	};
 	value.incrementQuantity = (mainId) => {
-		dispatch({ type: "INCREMENT_QUANTITY", payload: {mainId} });
+		dispatch({ type: "INCREMENT_QUANTITY", payload: { mainId } });
 	};
 	value.decrementQuantity = (mainId) => {
-		dispatch({ type: "DECREMENT_QUANTITY", payload: {mainId} });
+		dispatch({ type: "DECREMENT_QUANTITY", payload: { mainId } });
+	};
+	value.removeAllBasket = (mainId) => {
+		dispatch({ type: "REMOVE_TO_BASKET", payload: { mainId } });
 	};
 
 	return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;

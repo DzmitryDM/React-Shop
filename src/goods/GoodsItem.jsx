@@ -12,9 +12,10 @@ function GoodsItem({
 	const image = displayAssets.map((img, index) => {
 		if (index === 0) {
 			return <img key={img} src={img.full_background} alt="" />;
-		}
+		}else{
+      return  null
+      }
 	});
-	const imageBackground = displayAssets.map((item) => item.full_background);
 	const regularPrice = price.regularPrice;
 
 	return (
@@ -28,7 +29,7 @@ function GoodsItem({
 				<button
 					className="btn #5e35b1 deep-purple darken-1 set-btn"
 					onClick={() =>
-						getOrder({ mainId, displayName, regularPrice, imageBackground })
+						getOrder({ mainId, displayName, regularPrice })
 					}
 				>
 					Купить

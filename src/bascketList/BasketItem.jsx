@@ -7,7 +7,6 @@ function BasketItem({
 	quantity,
 	displayName,
 	regularPrice,
-	imageBackground,
 }) {
 	const {
 		removeToBasketShow = Function.prototype,
@@ -18,7 +17,6 @@ function BasketItem({
 	return (
 		<ul className="collection item">
 			<li className="collection-item avatar  ">
-				<img src={imageBackground} alt="" className="circle" />
 				<span className="title">{displayName}</span>
 
 				<p>

@@ -3,7 +3,7 @@ position: fixed;
    top: 40%;
    left: 50%;
    transform: translate(-50%, -50%);
-   width: 70rem;
+   width: 50rem;
    max-width: 95%;
    animation: show 500ms ease-in-out;
 }
@@ -48,3 +48,12 @@ color: #000;
    margin: 0 0.6rem;
 }
 
+
+.collection .collection-item.active{
+display: flex;
+justify-content: space-between;
+}
+
+.removeAllBasket{
+cursor: pointer;
+}

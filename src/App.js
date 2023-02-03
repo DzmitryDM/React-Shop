@@ -6,8 +6,8 @@ import { ContextProvider } from "./context/context";
 function App() {
 	return (
 		<div className="app">
-			<Header />
 			<ContextProvider>
+				<Header />
 				<Shop />
 			</ContextProvider>
 			<Footer />

@@ -1,5 +1,10 @@
 export const reducer = (state, { type, payload }) => {
 	switch (type) {
+     case "ON_PAGE_CHANGE":
+      return{
+      ...state,
+      currentPage:payload
+      }
 		case "SET_LOADING":
 			return {
 				...state,
@@ -82,7 +87,11 @@ export const reducer = (state, { type, payload }) => {
 					}
 				}),
 			};
-
+case "REMOVE_TO_BASKET":
+   return{
+   ...state,
+   order:state.order.filter(item=>item.mainId === payload.mainId)
+   }
 		default:
 			return state;
 	}
